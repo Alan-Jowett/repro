@@ -26,4 +26,4 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python2 -m pip install parcon
+        pip2 install parcon
