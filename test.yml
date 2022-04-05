@@ -1,0 +1,29 @@
+# Copyright (c) Microsoft Corporation
+# SPDX-License-Identifier: MIT
+
+name: "Test"
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+    - uses: actions/checkout@b0e28b5ac45a892f91e7d036f8200cf5ed489415
+      with:
+        submodules: 'recursive'
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 2.7
+
+    - name: Install dependencies
+      run: |
+        python2 -m pip install parcon
